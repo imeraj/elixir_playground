@@ -1,5 +1,5 @@
 defmodule KV do
-  @moduledoc """
-  Documentation for KV.
-  """
+    @moduledoc """
+    Documentation for KV.
+    """
 end
