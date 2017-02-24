@@ -31,6 +31,6 @@ defmodule Metex.Mixfile do
     [
         {:httpoison, "~> 0.10.0"},
         {:json,      "~> 1.0.0"}
-    ]
+	]
   end
 end
