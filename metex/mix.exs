@@ -30,7 +30,8 @@ defmodule Metex.Mixfile do
   defp deps do
     [
         {:httpoison, "~> 0.10.0"},
-        {:json,      "~> 1.0.0"}
+        {:json,      "~> 1.0.0"},
+        {:credo, "~> 0.5", only: [:dev, :test]}
 	]
   end
 end
