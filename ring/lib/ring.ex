@@ -10,6 +10,12 @@ defmodule Ring do
         {:link, link_to} when is_pid(link_to) ->
           Process.link(link_to)
           loop()
+        :trap_exit ->
+          Process.flag(:trap_exit, true)
+          loop()
+        {:EXIT, pid, reason} ->
+          IO.puts "#{inspect self} received {:EXIT, #{inspect pid}, #{reason}"
+          loop()
         :crash ->
           1/0
       end
@@ -26,7 +32,6 @@ defmodule Ring do
 
     def link_processes([proc|[]], linked_processes) do
       first_process = linked_processes |> List.last
-  
       send(proc, {:link, first_process})
       :ok
     end
