@@ -1,13 +1,23 @@
 defmodule MetexGenserver.Worker do
     use GenServer
 
+    @name MW
+
     ## Client API
     def start_link(options \\ []) do
-        GenServer.start_link(__MODULE__, :ok, options)
+        GenServer.start_link(__MODULE__, :ok, options ++ [name: MW])
     end
 
-    def get_temperature(pid, location) do
-        GenServer.call(pid, {:location, location})
+    def get_temperature(location) do
+        GenServer.call(@name, {:location, location})
+    end
+
+    def reset_stats do
+        GenServer.cast(@name, :reset_stats)
+    end
+
+    def stop do
+        GenServer.cast(@name, :stop)
     end
 
     ## Server Callbacks
@@ -23,6 +33,14 @@ defmodule MetexGenserver.Worker do
             _ ->
                 {:reply, :error, stats}
         end
+    end
+
+    def handle_cast(:reset_stats, _stats) do
+        {:noreply, %{}}
+    end
+
+    def handle_cast(:stop, stats) do
+        {:stop, :normal, stats}
     end
 
     ## Helper Functions
