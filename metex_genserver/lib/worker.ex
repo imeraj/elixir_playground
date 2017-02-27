@@ -20,6 +20,11 @@ defmodule MetexGenserver.Worker do
         GenServer.cast(@name, :stop)
     end
 
+    def terminate(reason, _stats) do
+        IO.puts "server terminated because of #{inspect reason}"
+        :ok
+    end
+
     ## Server Callbacks
     def init(:ok) do
         {:ok, %{}}
