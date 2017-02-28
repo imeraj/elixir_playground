@@ -85,9 +85,31 @@ defmodule ThySupervisor do
       {:reply, map_size(state), state}
     end
 
+    def handle_info({:EXIT, from, :normal}, state) do
+        new_state = state |> Map.delete(from)
+        {:noreply, new_state}
+    end
+
     def handle_info({:EXIT, from, :killed}, state) do
       new_state = state |> Map.delete(from)
-      {:noreply, state}
+      {:noreply, new_state}
+    end
+
+    def handle_info({:EXIT, old_pid, _reason}, state) do
+        case Map.fetch(state, old_pid) do
+            {:ok, child_spec} ->
+                case restart_child(old_pid, child_spec) do
+                    {:ok, {pid, child_spec}} ->
+                        new_state = state
+                            |> Map.delete(old_pid)
+                            |> Map.put(pid, child_spec)
+                {:noreply, new_state}
+            :error ->
+                {:noreply, state}
+            end
+        _ ->
+                {:noreply, state}
+        end
     end
 
     # Private Functions
