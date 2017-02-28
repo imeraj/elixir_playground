@@ -18,6 +18,10 @@ defmodule ThySupervisor do
       GenServer.call(supervisor, {:restart_child, pid, child_spec})
     end
 
+    def count_children(supervisor) do
+      GenServer.call(supervisor, :count_children)
+    end
+
     def which_children(supervisor) do
       GenServer.call(supervisor, :which_children)
     end
@@ -29,6 +33,11 @@ defmodule ThySupervisor do
               |> start_children
               |> Enum.into(Map.new)
       {:ok, state}
+    end
+
+    def terminate(_reason, state) do
+        terminate_children(state)
+        :ok
     end
 
     def handle_call({:start_child, child_spec}, _from, state) do
@@ -72,7 +81,12 @@ defmodule ThySupervisor do
       {:reply, state, state}
     end
 
-    def handle_info({:EXIT, _from, :killed}, state) do
+    def handle_call(:count_children, _from, state) do
+      {:reply, map_size(state), state}
+    end
+
+    def handle_info({:EXIT, from, :killed}, state) do
+      new_state = state |> Map.delete(from)
       {:noreply, state}
     end
 
@@ -98,11 +112,6 @@ defmodule ThySupervisor do
       end
     end
 
-    defp terminate_child(pid) do
-      Process.exit(pid, :kill)
-      :ok
-    end
-
     defp restart_child(pid, child_spec) when is_pid(pid) do
       case terminate_child(pid) do
         :ok ->
@@ -115,5 +124,18 @@ defmodule ThySupervisor do
         :error ->
             :error
         end
+      end
+
+      defp terminate_children([]) do
+          :ok
+      end
+
+      defp terminate_children(child_spec_list) do
+          child_spec_list |> Enum.each(fn {pid, _} -> terminate_child(pid) end)
+      end
+
+      defp terminate_child(pid) do
+          Process.exit(pid, :kill)
+          :ok
       end
 end
