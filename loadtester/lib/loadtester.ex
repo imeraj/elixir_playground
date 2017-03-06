@@ -1,3 +1,0 @@
-defmodule Loadtester do
-
-end
