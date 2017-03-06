@@ -5,9 +5,6 @@ defmodule Loadtester.CLI do
 
     def main(args) do
         Application.get_env(:Loadtester, :master_node)
-        |> IO.puts
-
-        Application.get_env(:Loadtester, :master_node)
         |> Node.start
 
         Application.get_env(:Loadtester, :slave_nodes)
@@ -32,10 +29,13 @@ defmodule Loadtester.CLI do
     end
 
     defp do_requests(n_requests, url, nodes) do
+        Logger.info "#{inspect nodes}"
         Logger.info "Pummeling #{url} with #{n_requests} requests"
 
         total_nodes = Enum.count(nodes)
         req_per_node = div(n_requests, total_nodes)
+
+        Logger.info "#{total_nodes}"
 
         nodes
         |> Enum.flat_map(fn node ->

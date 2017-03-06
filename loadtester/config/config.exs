@@ -28,8 +28,8 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
-config :Loadtester, master_node: :"a@Mohammad-Merajul-Islam-Molla"
+config :Loadtester, master_node: :"a@127.0.0.1"
 
-config :Loadtester, slave_nodes: [:"b@ohammad-Merajul-Islam-Molla",
-                                  :"c@ohammad-Merajul-Islam-Molla",
-                                  :"d@ohammad-Merajul-Islam-Molla"]
+config :Loadtester, slave_nodes: [:"b@127.0.0.1",
+                                  :"c@127.0.0.1",
+                                  :"d@127.0.0.1"]
