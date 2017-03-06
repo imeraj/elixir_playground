@@ -7,6 +7,7 @@ defmodule Loadtester.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     escript: [main_module: Loadtester.CLI], #1
      deps: deps()]
   end
 
@@ -31,7 +32,7 @@ defmodule Loadtester.Mixfile do
      [
          {:httpoison, "~> 0.10.0"},
          {:timex, "~> 3.0"},
-         {:tzdata, "~> 0.5.8"}
+         {:tzdata, "~> 0.1.8", override: true}
      ]
   end
 end
