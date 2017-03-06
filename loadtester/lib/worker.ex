@@ -2,11 +2,9 @@ defmodule Loadtester.Worker do
     use Timex
     require Logger
 
-    def start(url, caller, func \\ &HTTPoison.get/1) do
+    def start(url, func \\ &HTTPoison.get/1) do
         {timestamp, response} = Duration.measure(fn -> func.(url) end)
-        caller
-        |> send({self(),
-            handle_response({Duration.to_milliseconds(timestamp), response})})
+        handle_response({Duration.to_milliseconds(timestamp), response})
     end
 
     defp handle_response({msecs, {:ok, %HTTPoison.Response{status_code: code}}})
