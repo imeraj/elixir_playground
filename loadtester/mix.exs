@@ -15,7 +15,7 @@ defmodule Loadtester.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger, :timex, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -28,6 +28,10 @@ defmodule Loadtester.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+     [
+         {:httpoison, "~> 0.10.0"},
+         {:timex, "~> 3.0"},
+         {:tzdata, "~> 0.5.8"}
+     ]
   end
 end
