@@ -44,7 +44,7 @@ defmodule Loadtester.CLI do
                     Loadtester.Worker, :start, [url])
                 end)
             end)
-        |> Enum.map(&Task.await(&1))
+        |> Enum.map(&Task.await(&1, :infinity))
     end
 
     defp do_help do
