@@ -40,6 +40,7 @@ defmodule GenstageEx1 do
 
   defmodule Unpack do
     use GenStage
+
     def init(element) do
       {:producer_consumer, element}
     end
@@ -52,9 +53,11 @@ defmodule GenstageEx1 do
 
   defmodule Filter do
    use GenStage
+
    def init({filter, filter_value}) do
      {:producer_consumer, {filter, filter_value}}
    end
+
    def handle_events(events, _from, {filter, filter_value} = state) do
      events = Enum.map(events,
                           fn stations ->
