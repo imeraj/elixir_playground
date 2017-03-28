@@ -21,7 +21,7 @@ defmodule Flowexample do
 
   Output: CGACA GAAGA
   """
-  def clump(seq, k_mer_len, subseq_len, times) do
+  def clump(seq, subseq_len, times) do
     seq
     |> String.to_charlist
     |> Stream.chunk(subseq_len, 1)
