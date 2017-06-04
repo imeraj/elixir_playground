@@ -27,9 +27,11 @@ defmodule KVServer do
 				case KVServer.Command.parse(data) do
 					{:ok, command} ->
 						KVServer.Command.run(command)
-					{:error, _} = err -> err
+					{:error, _} = err ->
+					    err
 				end
-			{:error, _} = err -> err
+			{:error, _} = err ->
+			    err
 		end
 
 		write_line(socket, msg)
