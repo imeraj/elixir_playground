@@ -68,7 +68,6 @@ defmodule MetexGenserver.Worker do
     end
 
     defp parse_response({:error, %HTTPoison.Error{id: _, reason: reason}}) do
-        IO.puts "error here"
          {:error, reason}
     end
 
