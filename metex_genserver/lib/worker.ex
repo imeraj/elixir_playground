@@ -48,6 +48,11 @@ defmodule MetexGenserver.Worker do
         {:stop, :normal, stats}
     end
 
+    def handle_info(msg, stats) do
+        IO.puts "received #{inspect msg}"
+        {:noreply, stats}
+    end
+
     ## Helper Functions
     defp temperature_of(location) do
         url_for(location) |> HTTPoison.get |> parse_response
