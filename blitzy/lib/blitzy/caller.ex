@@ -10,7 +10,7 @@ defmodule Blitzy.Caller do
    end
 
    defp parse_results(results) do
-       {successes, failures} =
+       {successes, _failures} =
          results
          |> Enum.partition(fn x ->
             case x do
@@ -31,7 +31,7 @@ defmodule Blitzy.Caller do
        IO.puts """
        Total workers        : #{total_workers}
        Successful reqs      : #{total_success}
-       Failed res           : #{total_failure}
+       Failed reqs          : #{total_failure}
        Average (msecs)      : #{average_time}
        Longest (msecs)      : #{longest_time}
        Shortest (msecs)     : #{shortest_time}
