@@ -5,6 +5,7 @@ defmodule Blitzy.Mixfile do
     [app: :blitzy,
      version: "0.1.0",
      elixir: "~> 1.4",
+     escript: [main_module: Blitzy.CLI], #1
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -14,9 +15,11 @@ defmodule Blitzy.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
+    [mod: {Blitzy, []},
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger, :tzdata, :timex, :httpoison]]
+    extra_applications: [:logger, :tzdata, :timex, :httpoison]]
   end
+
 
   # Dependencies can be Hex packages:
   #
@@ -31,7 +34,7 @@ defmodule Blitzy.Mixfile do
     [
         {:httpoison, "~> 0.11.1"},
         {:timex, "~> 3.0"},
-        {:tzdata, "~> 0.5.12"}
+        {:tzdata, "~> 0.1.8", override: true}
     ]
   end
 end
