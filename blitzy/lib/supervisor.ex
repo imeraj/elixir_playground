@@ -1,6 +1,8 @@
 defmodule Blitzy.Supervisor do
   use Supervisor
 
+  @moduledoc false
+
   def start_link(:ok) do
     Supervisor.start_link(__MODULE__, :ok)
   end

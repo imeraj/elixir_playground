@@ -1,6 +1,8 @@
 defmodule KV.Bucket.Supervisor do
   use Supervisor
 
+  @moduledoc false
+
   # A simple module attribute that stores the supervisor name
   @name KV.Bucket.Supervisor
 

@@ -34,7 +34,8 @@ defmodule Blitzy.Mixfile do
     [
         {:httpoison, "~> 0.11.1"},
         {:timex, "~> 3.0"},
-        {:tzdata, "~> 0.1.8", override: true}
+        {:tzdata, "~> 0.1.8", override: true},
+        {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
     ]
   end
 end

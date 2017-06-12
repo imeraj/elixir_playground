@@ -1,6 +1,8 @@
 defmodule Blitzy.Caller do
     require Logger
 
+    @moduledoc false
+
     def do_requests(n_requests, url, nodes) do
         Logger.info "Pummeling #{url} with #{n_requests} requests"
 

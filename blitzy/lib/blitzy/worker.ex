@@ -1,6 +1,8 @@
 defmodule Blitzy.Worker do
-  use Timex
-  require Logger
+   use Timex
+   require Logger
+
+   @moduledoc false
 
    def start(url) do
      IO.puts "Running on #node - #{node()}"

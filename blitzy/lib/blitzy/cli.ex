@@ -3,6 +3,8 @@ use Mix.Config
 defmodule Blitzy.CLI do
   require Logger
 
+  @moduledoc false
+
   # ./blitzy -n [requests] [url]
   def main(args) do
     Application.get_env(:blitzy, :master_node)
