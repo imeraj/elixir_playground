@@ -17,22 +17,15 @@ defmodule KVServer do
 	defp loop_acceptor(socket) do
 		{:ok, client} = :gen_tcp.accept(socket)
 		{:ok, pid} = Task.Supervisor.start_child(KVServer.TaskSupervisor, fn -> serve(client) end)
-    	:ok = :gen_tcp.controlling_process(client, pid)
+		:ok = :gen_tcp.controlling_process(client, pid)
 		loop_acceptor(socket)
 	end
 
 	defp serve(socket) do
-		msg = case read_line(socket) do
-			{:ok, data} ->
-				case KVServer.Command.parse(data) do
-					{:ok, command} ->
-						KVServer.Command.run(command)
-					{:error, _} = err ->
-					    err
-				end
-			{:error, _} = err ->
-			    err
-		end
+		msg =
+			with {:ok, data} <- read_line(socket),
+			     {:ok, command} <- KVServer.Command.parse(data),
+			do: KVServer.Command.run(command)
 
 		write_line(socket, msg)
 		serve(socket)

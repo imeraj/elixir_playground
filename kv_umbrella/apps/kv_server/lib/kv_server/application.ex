@@ -10,8 +10,8 @@ defmodule KVServer.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-		supervisor(Task.Supervisor, [[name: KVServer.TaskSupervisor]]),
-		worker(Task, [KVServer, :accept, [4040]])
+	    {Task.Supervisor, name: KVServer.TaskSupervisor},
+	    Supervisor.child_spec({Task, fn -> KVServer.accept(4040) end}, restart: :permanent)
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
