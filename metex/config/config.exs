@@ -28,3 +28,5 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+config :metex, :apiKey, "acb2904895792f9b86627f293c081bb5"

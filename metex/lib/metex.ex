@@ -42,6 +42,6 @@ defmodule Metex.Worker do
     end
 
     defp apikey do
-        "acb2904895792f9b86627f293c081bb5"
+	    Application.fetch_env!(:metex, :apiKey)
     end
 end
