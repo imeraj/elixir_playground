@@ -8,9 +8,11 @@ defmodule Metex.Coordinator do
         end
         loop(new_results, results_expected)
       :exit ->
-        IO.puts(results |> Enum.sort |> Enum.join(", "))
-      _ ->
-        loop(results, results_expected)
+        IO.puts(results
+                |> Enum.sort
+                |> Enum.join(", "))
+       _ ->
+         loop(results, results_expected)
     end
   end
 
