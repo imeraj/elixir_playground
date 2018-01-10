@@ -16,8 +16,10 @@ defmodule Metex.Worker do
         case result do
             {:ok, temp} ->
                 {:ok, "#{location}: #{temp}°C"}
-            {:error, reason} ->
-                {:error, reason}
+	          {:ok, code, msg} ->
+		            {:ok, "#{msg}: #{code}"}
+	          {:error, reason} ->
+              {:ok, reason}
         end
     end
 
@@ -27,11 +29,17 @@ defmodule Metex.Worker do
     end
 
     defp parse_response({:ok, %HTTPoison.Response{body: body, status_code: 200}}) do
-        body |> JSON.decode! |> compute_temperature
+        body
+        |> JSON.decode!
+        |> compute_temperature
+    end
+
+    defp parse_response({:ok, %HTTPoison.Response{body: _, status_code: status_code}}) do
+      {:ok, status_code, "API call failed!"}
     end
 
     defp parse_response({:error, %HTTPoison.Error{id: _, reason: reason}}) do
-         {:error, reason}
+      {:error, reason}
     end
 
     defp compute_temperature(json) do
