@@ -1,7 +1,8 @@
 defmodule Ring do
     def create_processes(n) do
-        1..n |> Enum.map(fn _ -> spawn(fn ->
-          loop end)
+        1..n
+        |> Enum.map(fn _ -> spawn(fn ->
+          loop() end)
         end)
     end
 
@@ -14,7 +15,7 @@ defmodule Ring do
           Process.flag(:trap_exit, true)
           loop()
         {:EXIT, pid, reason} ->
-          IO.puts "#{inspect self} received {:EXIT, #{inspect pid}, #{reason}"
+          IO.inspect("#{inspect self} received {:EXIT, #{inspect pid}, #{inspect reason}")
           loop()
         :crash ->
           1/0
@@ -31,7 +32,8 @@ defmodule Ring do
     end
 
     def link_processes([proc|[]], linked_processes) do
-      first_process = linked_processes |> List.last
+      first_process = linked_processes
+                      |> List.last
       send(proc, {:link, first_process})
       :ok
     end
