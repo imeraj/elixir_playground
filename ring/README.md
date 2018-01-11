@@ -12,5 +12,8 @@
 * To send signal to a process:
 	 pids |> Enum.map(fn pid -> send(pid, :trap_exit) end)
 
+* To run test.watch
+	 mix test.watch
+
 
 
