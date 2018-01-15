@@ -5,7 +5,8 @@ defmodule Blitzy.CLI do
 
   @moduledoc false
 
-  # ./blitzy -n [requests] [url]
+  # ./blitzy -n [requests] [url]        (command line)
+  # Blitzy.CLI.main(["-n", "100", "http://www.bieberfever.com"]  (from iex)
   def main(args) do
     Application.get_env(:blitzy, :master_node)
     |> Node.start()
@@ -15,6 +16,7 @@ defmodule Blitzy.CLI do
 
     args
     |> parse_args
+    |> IO.inspect
     |> process_options([node()|Node.list()])
   end
 

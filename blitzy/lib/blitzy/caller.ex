@@ -11,13 +11,14 @@ defmodule Blitzy.Caller do
 
         nodes
         |> Enum.flat_map(fn node ->
-            1..req_per_node |> Enum.map(fn _ ->
+            1..req_per_node
+            |> Enum.map(fn _ ->
                 Task.Supervisor.async({Blitzy.TasksSupervisor, node},
                     Blitzy.Worker, :start, [url])
              end)
          end)
-         |> Enum.map(&Task.await(&1, :infinity))
-         |> parse_results
+        |> Enum.map(&Task.await(&1, :infinity))
+        |> parse_results
      end
 
     defp parse_results(results) do
@@ -34,7 +35,8 @@ defmodule Blitzy.Caller do
         total_success = Enum.count(successes)
         total_failure = total_workers - total_success
 
-        data = successes |> Enum.map(fn {:ok, time} -> time end)
+        data = successes
+               |> Enum.map(fn {:ok, time} -> time end)
         average_time = average(data)
         longest_time = Enum.max(data)
         shortest_time = Enum.min(data)
