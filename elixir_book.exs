@@ -41,7 +41,7 @@ IO.puts(Sum.sum(5))
 defmodule GCD do
   def gcd(x, 0) when x > 0, do: x
   def gcd(x, y) when x > 0 and y > 0, do: gcd(y, rem(x, y))
-  def gcd(_, _), do: IO.puts("wrong input")
+  def gcd(_, _), do: "wrong input"
 end
 
 IO.puts(GCD.gcd(4, 5))
@@ -70,3 +70,5 @@ end
 
 IO.puts(Chop.guess(50, 1..100))
 IO.puts(Chop.guess(273, 1..500))
+
+
