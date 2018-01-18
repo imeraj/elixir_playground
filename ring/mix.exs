@@ -34,7 +34,8 @@ defmodule Ring.Mixfile do
       {:credo, "~> 0.5", only: [:dev, :test]},
       {:mix_test_watch, "~> 0.5", only: :dev, runtime: false},
       {:ex_unit_notifier, "~> 0.1", only: :test},
-      {:ex_guard, "~> 1.3", only: :dev}
+      {:ex_guard, "~> 1.3", only: :dev},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 end

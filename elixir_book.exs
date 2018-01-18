@@ -71,4 +71,45 @@ end
 IO.puts(Chop.guess(50, 1..100))
 IO.puts(Chop.guess(273, 1..500))
 
+defmodule MyList do
+	def len([]), do: 0
+	def len([_head | tail]), do: 1 + len(tail)
 
+  def span(from, to) when from > to, do: []
+  def span(from, to), do: [from | span(from + 1, to)]
+end
+
+IO.puts(MyList.len([]))
+IO.puts(MyList.len([1, 2 ,3]))
+IO.puts(MyList.len([1, [2 ,3]]))
+
+IO.inspect(MyList.span(5, 10), label: "valid")
+IO.inspect(MyList.span(10, 5), label: "invalid")
+IO.inspect(MyList.span(0, 5),  label: "valid")
+
+defmodule MyMap do
+  def map([], _func), do: []
+  def map([head | tail], func), do: [func.(head) | map(tail, func)]
+end
+
+IO.inspect(MyMap.map([1, 2, 3, 4], &(&1 * 2)), label: "multiply by 2", limit: 2)
+IO.inspect(MyMap.map([1, 2, 3, 4], &(&1 * &1)), label: "double each elem")
+
+defmodule MySum do
+  def sum([]), do: 0
+  def sum([head | tail]), do: head + sum(tail)
+end
+
+IO.puts(MySum.sum([1, 2, 3, 4, 5]))
+IO.puts(MySum.sum([-100]))
+
+people = [
+	%{ name: "Grumpy", height: 1.24 },
+	%{ name: "Dave", height: 1.88 },
+	%{ name: "Dopey", height: 1.32 },
+	%{ name: "Shaquille", height: 2.16 },
+	%{ name: "Sneezy", height: 1.28 }
+]
+
+for person = %{ height: height } <- people, height > 1.5,
+    do: IO.inspect person
