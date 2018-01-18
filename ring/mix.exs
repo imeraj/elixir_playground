@@ -2,12 +2,14 @@ defmodule Ring.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ring,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :ring,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -29,8 +31,10 @@ defmodule Ring.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-	    {:credo, "~> 0.5", only: [:dev, :test]},
-      {:mix_test_watch, "~> 0.5", only: :dev, runtime: false}
+      {:credo, "~> 0.5", only: [:dev, :test]},
+      {:mix_test_watch, "~> 0.5", only: :dev, runtime: false},
+      {:ex_unit_notifier, "~> 0.1", only: :test},
+      {:ex_guard, "~> 1.3", only: :dev}
     ]
   end
 end
