@@ -77,6 +77,20 @@ defmodule MyList do
 
   def span(from, to) when from > to, do: []
   def span(from, to), do: [from | span(from + 1, to)]
+
+	def each([], _fun), do: []
+	def each([ head | tail], fun) do
+		[ fun.(head) | each(tail, fun) ]
+	end
+
+	def filter([], _fun), do: []
+	def filter([head | tail], fun) do
+		if fun.(head) do
+			[head | filter(tail, fun)]
+		else
+			filter(tail, fun)
+		end
+	end
 end
 
 IO.puts(MyList.len([]))
@@ -86,6 +100,9 @@ IO.puts(MyList.len([1, [2 ,3]]))
 IO.inspect(MyList.span(5, 10), label: "valid")
 IO.inspect(MyList.span(10, 5), label: "invalid")
 IO.inspect(MyList.span(0, 5),  label: "valid")
+
+MyList.each([1, 2, 3, 4, 5], &IO.inspect(&1, label: "MyList.each: "))
+IO.inspect(MyList.filter([1, 2, 3, 4, 5], &(rem(&1, 2) != 0)))
 
 defmodule MyMap do
   def map([], _func), do: []
@@ -113,3 +130,12 @@ people = [
 
 for person = %{ height: height } <- people, height > 1.5,
     do: IO.inspect person
+
+Stream.resource(fn -> File.open!("sample") end,
+	fn file ->
+		case IO.read(file, :line) do
+			data when is_binary(data) -> {[data], file}
+			_ -> {:halt, file}
+		end
+	end,
+	fn file -> File.close(file) end) |> Enum.take(2) |> Enum.shuffle() |> IO.inspect
