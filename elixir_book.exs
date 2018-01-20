@@ -139,3 +139,14 @@ Stream.resource(fn -> File.open!("sample") end,
 		end
 	end,
 	fn file -> File.close(file) end) |> Enum.take(2) |> Enum.shuffle() |> IO.inspect
+
+defmodule MyString do
+	def anagram1?(word1, word2) do
+		(word1 -- word2) == '' and
+		(word2 -- word1) == ''
+	end
+
+
+end
+
+IO.inspect(MyString.anagram?('dog', 'god'))
