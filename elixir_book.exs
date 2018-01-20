@@ -141,10 +141,28 @@ Stream.resource(fn -> File.open!("sample") end,
 	fn file -> File.close(file) end) |> Enum.take(2) |> Enum.shuffle() |> IO.inspect
 
 defmodule MyString do
-	def anagram1?(word1, word2) do
+	def anagram?(word1, word2) do
 		(word1 -- word2) == '' and
 		(word2 -- word1) == ''
+	end
+
+	def center(list) do
+		longest = Enum.reduce(list, 0, fn word, longest ->
+				if String.length(word) > longest do
+					String.length(word)
+				else
+					longest
+				end
+			end)
+
+		Enum.each(list, fn word ->
+			spaces = longest - String.length(word)
+			IO.puts(String.duplicate(" ", div(spaces,2)) <> word)
+		end)
+
+
 	end
 end
 
 IO.inspect(MyString.anagram?('dog', 'god'))
+MyString.center(["cat", "zebra", "elephant", "abradacabra"])
