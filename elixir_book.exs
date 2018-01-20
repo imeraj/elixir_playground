@@ -145,8 +145,6 @@ defmodule MyString do
 		(word1 -- word2) == '' and
 		(word2 -- word1) == ''
 	end
-
-
 end
 
 IO.inspect(MyString.anagram?('dog', 'god'))
