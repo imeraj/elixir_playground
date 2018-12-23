@@ -7,6 +7,12 @@ defmodule Issues.CLI do
   ​table of the last _n_ issues in a github project​
   """
 
+  def main(argv) do
+    argv
+    |> parse_args()
+    |> process()
+  end
+
   def run(argv) do
     argv
     |> parse_args
@@ -20,16 +26,31 @@ defmodule Issues.CLI do
     """
   end
 
-  defp process({user, project, _count}) do
+  defp process({user, project, count}) do
     Issues.GitHubIssues.fetch(user, project)
     |> decode_response()
+    |> sort_into_descending_order()
+    |> last(count)
+    |> IO.inspect()
   end
 
+  defp last(list, count) do
+    list
+    |> Enum.take(count)
+    |> Enum.reverse()
+  end
 
   defp decode_response({:ok, body}), do: body
   defp decode_response({:error, error}) do
     IO.puts "Error fetching from Github: #{error["message"]}"
     System.halt(2)
+  end
+
+  defp sort_into_descending_order(list_of_issues) do
+    list_of_issues
+    |> Enum.sort(fn i1, i2 ->
+      i1["created_at"] >= i2["created_at"]
+    end)
   end
 
   @doc """
