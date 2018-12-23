@@ -3,4 +3,5 @@
 * mix escript.build
 
   ./issues pragdave earmark 4
- 
+
+* mix xref graph --format dot 
