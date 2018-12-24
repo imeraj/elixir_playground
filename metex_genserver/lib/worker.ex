@@ -35,9 +35,9 @@ defmodule MetexGenserver.Worker do
 
     ## Helper Functions
     defp temperature_of(location) do
-        url_for(location)
-        |> HTTPoison.get
-        |> parse_response
+        result = url_for(location)
+                |> HTTPoison.get
+                |> parse_response
     end
 
     defp url_for(location) do
@@ -49,8 +49,8 @@ defmodule MetexGenserver.Worker do
         body |> JSON.decode! |> compute_temperature
     end
 
-    defp parse_response({:error, %HTTPoison.Error{id: _, reason: reason}}) do
-         {:error, reason}
+    defp parse_response({:ok, %HTTPoison.Response{body: _, status_code: _status_code}}) do
+         {:error, "City not found!"}
     end
 
     defp compute_temperature(json) do
@@ -82,6 +82,8 @@ defmodule MetexGenserver.Worker do
 		    {:ok, temp} ->
 			    new_stats = update_stats(stats, location)
 			    {:reply, "#{temp}°C", new_stats}
+        {:error, message} ->
+            {:reply, message, stats}
 		    _ ->
 			    {:reply, :error, stats}
 	    end
