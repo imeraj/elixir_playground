@@ -1,21 +1,17 @@
 # BroadwayStock
 
-**TODO: Add description**
+Pre-requisite: RabbitMQ must be installed and running.
+Create a queue with below command - 
 
-## Installation
+$rabbitmqadmin declare queue name=stock_queue durable=true    
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `broadway_stock` to your list of dependencies in `mix.exs`:
+To run the application:
 
-```elixir
-def deps do
-  [
-    {:broadway_stock, "~> 0.1.0"}
-  ]
-end
-```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/broadway_stock](https://hexdocs.pm/broadway_stock).
+$mix deps.get
 
+$mix compile
+
+$iex -S mix
+
+iex(2)> $BroadwayStock.dispatch
