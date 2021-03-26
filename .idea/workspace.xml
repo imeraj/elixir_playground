@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dd9abcbb-118b-41ea-ac1f-f2f5a0d74c3b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Elixir_Playground.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Elixir_Playground.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1aEO80BybzqBC6trw39q9Ozvbj1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.settings.patched" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$/blitzy" />
+        <option value="$PROJECT_DIR$" />
+        <option value="$PROJECT_DIR$/kv_umbrella/apps/kv_server" />
+        <option value="$PROJECT_DIR$/genstage_ex2" />
+        <option value="$PROJECT_DIR$/flowexample" />
+        <option value="$PROJECT_DIR$/kv_umbrella/apps/kv" />
+        <option value="$PROJECT_DIR$/loadtester" />
+        <option value="$PROJECT_DIR$/mongodbtest" />
+        <option value="$PROJECT_DIR$/genstage_ex1" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/mongodb" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/db_connection" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/connection" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/elixir_make" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/jaxon" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/credo" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/bunt" />
+        <option value="$PROJECT_DIR$/issues/deps/jason" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/json" />
+        <option value="$PROJECT_DIR$/issues/deps/poison" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/httpoison" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/earmark" />
+        <option value="$PROJECT_DIR$/issues/deps/ssl_verify_fun" />
+        <option value="$PROJECT_DIR$/kv_umbrella/deps/ex_doc" />
+        <option value="$PROJECT_DIR$/ring/deps/ex_guard" />
+        <option value="$PROJECT_DIR$/ring/deps/dialyxir" />
+        <option value="$PROJECT_DIR$/ring/deps/mix_test_watch" />
+        <option value="$PROJECT_DIR$/ring/deps/ex_unit_notifier" />
+        <option value="$PROJECT_DIR$/chucky" />
+      </list>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dd9abcbb-118b-41ea-ac1f-f2f5a0d74c3b" name="Default Changelist" comment="" />
+      <created>1586297125331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586297125331</updated>
+      <workItem from="1586297151379" duration="4734000" />
+      <workItem from="1586304314654" duration="15345000" />
+      <workItem from="1614455411689" duration="2129000" />
+      <workItem from="1614476881112" duration="149000" />
+      <workItem from="1614478488779" duration="122000" />
+      <workItem from="1614519135951" duration="627000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="466" y="59" key="SettingsEditor" timestamp="1614478519933">
+      <screen x="0" y="25" width="1680" height="971" />
+    </state>
+    <state x="466" y="59" key="SettingsEditor/0.25.1680.971@0.25.1680.971" timestamp="1614478519933" />
+  </component>
+</project>
