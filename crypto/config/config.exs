@@ -17,5 +17,9 @@ import Config
 #       metadata: [:user_id]
 #
 
+config :binance,
+  api_key: "YOUR-API-KEY-HERE",
+  secret_key: "YOUR-SECRET-KEY-HERE"
+
 config :logger,
   level: :debug
