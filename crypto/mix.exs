@@ -16,6 +16,6 @@ defmodule Crypto.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [{:ex_guard, "~> 1.5", only: :dev}, {:credo, "~> 1.5", only: [:dev, :test], runtime: false}]
   end
 end
