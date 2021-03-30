@@ -3,8 +3,8 @@ defmodule Naive.Trader do
 
   require Logger
 
-  alias Streamer.Binance.TradeEvent
   alias Decimal, as: D
+  alias Streamer.Binance.TradeEvent
 
   defmodule State do
     @enforce_keys [:symbol, :profit_interval, :tick_size]
