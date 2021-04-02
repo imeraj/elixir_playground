@@ -23,3 +23,6 @@ config :binance,
 
 config :logger,
   level: :debug
+
+config :naive,
+  binance_client: BinanceMock
