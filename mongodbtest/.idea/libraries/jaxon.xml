@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="jaxon" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/jaxon/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/jaxon/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/jaxon/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/jaxon/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/jaxon/lib" />
+      <root url="file://$PROJECT_DIR$/deps/jaxon/priv" />
+      <root url="file://$PROJECT_DIR$/deps/jaxon/c_src" />
+      <root url="file://$PROJECT_DIR$/deps/jaxon/lib" />
+      <root url="file://$PROJECT_DIR$/deps/jaxon/priv" />
+      <root url="file://$PROJECT_DIR$/deps/jaxon/c_src" />
+    </SOURCES>
+  </library>
+</component>

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd9abcbb-118b-41ea-ac1f-f2f5a0d74c3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Elixir_Playground.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Elixir_Playground.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing_elixir/.keep" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elixir_book.exs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,48 +19,49 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.settings.patched" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RubyModuleManagerSettings">
     <option name="blackListedRootsPaths">
       <list>
-        <option value="$PROJECT_DIR$/blitzy" />
-        <option value="$PROJECT_DIR$" />
         <option value="$PROJECT_DIR$/kv_umbrella/apps/kv_server" />
-        <option value="$PROJECT_DIR$/genstage_ex2" />
-        <option value="$PROJECT_DIR$/flowexample" />
-        <option value="$PROJECT_DIR$/kv_umbrella/apps/kv" />
-        <option value="$PROJECT_DIR$/loadtester" />
-        <option value="$PROJECT_DIR$/mongodbtest" />
-        <option value="$PROJECT_DIR$/genstage_ex1" />
-        <option value="$PROJECT_DIR$/mongodbtest/deps/mongodb" />
-        <option value="$PROJECT_DIR$/mongodbtest/deps/db_connection" />
-        <option value="$PROJECT_DIR$/mongodbtest/deps/connection" />
-        <option value="$PROJECT_DIR$/mongodbtest/deps/elixir_make" />
-        <option value="$PROJECT_DIR$/mongodbtest/deps/jaxon" />
-        <option value="$PROJECT_DIR$/metex_genserver/deps/credo" />
-        <option value="$PROJECT_DIR$/metex_genserver/deps/bunt" />
-        <option value="$PROJECT_DIR$/issues/deps/jason" />
-        <option value="$PROJECT_DIR$/metex_genserver/deps/json" />
-        <option value="$PROJECT_DIR$/issues/deps/poison" />
-        <option value="$PROJECT_DIR$/metex_genserver/deps/httpoison" />
-        <option value="$PROJECT_DIR$/metex_genserver/deps/earmark" />
-        <option value="$PROJECT_DIR$/issues/deps/ssl_verify_fun" />
-        <option value="$PROJECT_DIR$/kv_umbrella/deps/ex_doc" />
-        <option value="$PROJECT_DIR$/ring/deps/ex_guard" />
-        <option value="$PROJECT_DIR$/ring/deps/dialyxir" />
         <option value="$PROJECT_DIR$/ring/deps/mix_test_watch" />
-        <option value="$PROJECT_DIR$/ring/deps/ex_unit_notifier" />
+        <option value="$PROJECT_DIR$/issues/deps/jason" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/httpoison" />
+        <option value="$PROJECT_DIR$/issues/deps/ssl_verify_fun" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/credo" />
+        <option value="$PROJECT_DIR$/issues/deps/poison" />
+        <option value="$PROJECT_DIR$/kv_umbrella/apps/kv" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/json" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/bunt" />
+        <option value="$PROJECT_DIR$/metex_genserver/deps/earmark" />
+        <option value="$PROJECT_DIR$" />
+        <option value="$PROJECT_DIR$/mongodbtest" />
+        <option value="$PROJECT_DIR$/loadtester" />
+        <option value="$PROJECT_DIR$/blitzy" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/mongodb" />
+        <option value="$PROJECT_DIR$/flowexample" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/elixir_make" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/connection" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/db_connection" />
+        <option value="$PROJECT_DIR$/mongodbtest/deps/jaxon" />
+        <option value="$PROJECT_DIR$/genstage_ex2" />
+        <option value="$PROJECT_DIR$/kv_umbrella/deps/ex_doc" />
         <option value="$PROJECT_DIR$/chucky" />
+        <option value="$PROJECT_DIR$/genstage_ex1" />
+        <option value="$PROJECT_DIR$/ring/deps/dialyxir" />
+        <option value="$PROJECT_DIR$/ring/deps/ex_unit_notifier" />
+        <option value="$PROJECT_DIR$/ring/deps/ex_guard" />
       </list>
     </option>
   </component>
@@ -74,6 +77,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -91,11 +95,16 @@
       <workItem from="1614476881112" duration="149000" />
       <workItem from="1614478488779" duration="122000" />
       <workItem from="1614519135951" duration="627000" />
+      <workItem from="1633263288951" duration="9000" />
+      <workItem from="1633263534707" duration="17000" />
+      <workItem from="1633263556956" duration="47000" />
+      <workItem from="1633263608383" duration="4000" />
+      <workItem from="1633263631800" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="59" key="SettingsEditor" timestamp="1614478519933">

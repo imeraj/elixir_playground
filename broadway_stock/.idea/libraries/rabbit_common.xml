@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="rabbit_common" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/rabbit_common/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/rabbit_common/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/rabbit_common/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/rabbit_common/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/rabbit_common/src" />
+      <root url="file://$PROJECT_DIR$/deps/rabbit_common/src" />
+    </SOURCES>
+  </library>
+</component>

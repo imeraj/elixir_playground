@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="csv" type="mix">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/csv/lib" />
+      <root url="file://$PROJECT_DIR$/deps/csv/lib" />
+    </SOURCES>
+  </library>
+</component>

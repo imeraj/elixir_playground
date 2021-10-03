@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lager" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/lager/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/lager/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/lager/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/lager/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/lager/src" />
+      <root url="file://$PROJECT_DIR$/deps/lager/priv" />
+      <root url="file://$PROJECT_DIR$/deps/lager/src" />
+      <root url="file://$PROJECT_DIR$/deps/lager/priv" />
+    </SOURCES>
+  </library>
+</component>

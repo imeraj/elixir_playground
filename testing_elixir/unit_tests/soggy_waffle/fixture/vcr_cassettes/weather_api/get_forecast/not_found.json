@@ -1,0 +1,29 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.openweathermap.org/data/2.5/forecast?APPID=2e92c9bf42a01f4b0369dfc90b71548c&q=Denver%2C+CO"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"cod\":\"404\",\"message\":\"city not found\"}",
+      "headers": {
+        "Server": "openresty",
+        "Date": "Thu, 21 Nov 2019 21:05:51 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "40",
+        "Connection": "keep-alive",
+        "X-Cache-Key": "/data/2.5/forecast?APPID=2e92c9bf42a01f4b0369dfc90b71548c&q=denver%2c+co",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="mongodb" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/mongodb/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/mongodb/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/mongodb/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/mongodb/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/mongodb/lib" />
+      <root url="file://$PROJECT_DIR$/deps/mongodb/lib" />
+    </SOURCES>
+  </library>
+</component>

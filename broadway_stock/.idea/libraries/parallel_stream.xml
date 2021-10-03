@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="parallel_stream" type="mix">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/parallel_stream/lib" />
+      <root url="file://$PROJECT_DIR$/deps/parallel_stream/lib" />
+    </SOURCES>
+  </library>
+</component>
