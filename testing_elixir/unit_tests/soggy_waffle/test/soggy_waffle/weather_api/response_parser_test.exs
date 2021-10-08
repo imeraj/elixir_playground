@@ -42,4 +42,19 @@ defmodule SoggyWaffle.WeatherAPI.ResponseParserTest do
     end
   end
 
+  test "success: returns rain? false for any other id codes" do
+    {_, thunderstorm_ids} = @thunderstorm_ids
+    {_, drizzle_ids} = @drizzle_ids
+    {_, rain_ids} = @rain_ids
+
+    all_rain_ids = thunderstorm_ids ++ drizzle_ids ++ rain_ids
+    now_unix = DateTime.utc_now() |> DateTime.to_unix()
+
+    for id <- 100..900, id not in all_rain_ids do
+      record = %{"dt" => now_unix, "weather" => [%{"id" => id}]}
+
+      assert {:ok, [weather_struct]} = ResponseParser.parse_response(%{"list" => [record]})
+      assert weather_struct.rain? == false, "Expected weather id (#{id}) to NOT be a rain condition"
+    end
+  end
 end
