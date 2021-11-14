@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="websockex" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websockex/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websockex/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websockex/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websockex/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websockex/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websockex/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/websockex/lib" />
+      <root url="file://$PROJECT_DIR$/deps/websockex/lib" />
+      <root url="file://$PROJECT_DIR$/deps/websockex/lib" />
+      <root url="file://$PROJECT_DIR$/deps/websockex/lib" />
+      <root url="file://$PROJECT_DIR$/deps/websockex/lib" />
+      <root url="file://$PROJECT_DIR$/deps/websockex/lib" />
+    </SOURCES>
+  </library>
+</component>
