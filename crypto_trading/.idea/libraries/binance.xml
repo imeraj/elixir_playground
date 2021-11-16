@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="binance" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/binance/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/binance/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/consolidated" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/binance/lib" />
+      <root url="file://$PROJECT_DIR$/deps/binance/lib" />
+    </SOURCES>
+  </library>
+</component>
