@@ -26,6 +26,11 @@ defmodule Naive.Trader do
 
     Logger.info("Initializing new trader for #{symbol}")
 
+    Phoenix.PubSub.subscribe(
+      Streamer.PubSub,
+      "TRADE_EVENTS:#{symbol}"
+    )
+
     tick_size = fetch_tick_size(symbol)
 
     {:ok,
@@ -36,7 +41,7 @@ defmodule Naive.Trader do
      }}
   end
 
-  def handle_cast(
+  def handle_info(
         %TradeEvent{price: price},
         %State{symbol: symbol, buy_order: nil} = state
       ) do
@@ -50,7 +55,7 @@ defmodule Naive.Trader do
     {:noreply, %{state | buy_order: order}}
   end
 
-  def handle_cast(
+  def handle_info(
         %TradeEvent{
           quantity: quantity,
           buyer_order_id: buyer_order_id
@@ -79,7 +84,7 @@ defmodule Naive.Trader do
     {:noreply, %{state | sell_order: order}}
   end
 
-  def handle_cast(
+  def handle_info(
         %TradeEvent{
           seller_order_id: order_id,
           quantity: quantity
@@ -95,7 +100,7 @@ defmodule Naive.Trader do
     {:stop, :normal, state}
   end
 
-  def handle_cast(%TradeEvent{}, state) do
+  def handle_info(%TradeEvent{}, state) do
     {:noreply, state}
   end
 
