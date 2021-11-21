@@ -36,6 +36,10 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/binance" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/idna" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix_pubsub" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/poolboy" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix_pubsub_redis" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/redix" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/telemetry" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
