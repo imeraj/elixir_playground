@@ -2,6 +2,7 @@ defmodule Naive.Leader do
   use GenServer
 
   alias Naive.Trader
+  alias Decimal
 
   require Logger
 
@@ -127,30 +128,48 @@ defmodule Naive.Leader do
   end
 
   defp fetch_symbol_settings(symbol) do
-    tick_size = fetch_tick_size(symbol)
+    symbol_filters = fetch_symbol_filters(symbol)
+
+    Map.merge(
+      %{
+        symbol: symbol,
+        chunks: 1,
+        budget: 20,
+
+        # 0.01% for quick testing
+        buy_down_interval: "0.0001",
+        # -0.12% for quick testing
+        profit_interval: "-0.0012"
+      },
+      symbol_filters
+    )
+  end
+
+  defp fetch_symbol_filters(symbol) do
+    symbol_filters =
+      @binance_client.get_exchange_info()
+      |> elem(1)
+      |> Map.get(:symbols)
+      |> Enum.find(&(&1["symbol"] == symbol))
+      |> Map.get("filters")
+
+    tick_size =
+      symbol_filters
+      |> Enum.find(&(&1["filterType"] == "PRICE_FILTER"))
+      |> Map.get("tickSize")
+
+    step_size =
+      symbol_filters
+      |> Enum.find(&(&1["filterType"] == "LOT_SIZE"))
+      |> Map.get("stepSize")
 
     %{
-      symbol: symbol,
-      chunks: 1,
-      # 0.01% for quick testing
-      buy_down_interval: "0.0001",
-      # -0.12% for quick testing
-      profit_interval: "-0.0012",
-      tick_size: tick_size
+      tick_size: tick_size,
+      step_size: step_size
     }
   end
 
-  defp fetch_tick_size(symbol) do
-    @binance_client.get_exchange_info()
-    |> elem(1)
-    |> Map.get(:symbols)
-    |> Enum.find(&(&1["symbol"] == symbol))
-    |> Map.get("filters")
-    |> Enum.find(&(&1["filterType"] == "PRICE_FILTER"))
-    |> Map.get("tickSize")
-  end
-
   defp fresh_trader_state(settings) do
-    struct(Trader.State, settings)
+    %{struct(Trader.State, settings) | budget: Decimal.div(settings.budget, settings.chunks)}
   end
 end
