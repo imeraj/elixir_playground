@@ -132,6 +132,8 @@ defmodule Naive.Leader do
     %{
       symbol: symbol,
       chunks: 1,
+      # 0.01% for quick testing
+      buy_down_interval: "0.0001",
       # -0.12% for quick testing
       profit_interval: "-0.0012",
       tick_size: tick_size
