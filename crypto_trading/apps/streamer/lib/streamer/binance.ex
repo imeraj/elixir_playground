@@ -38,10 +38,10 @@ defmodule Streamer.Binance do
       :buyer_market_maker => event["m"]
     }
 
-    #    Logger.debug(
-    #      "Trade event received " <>
-    #        "#{trade_event.symbol}@#{trade_event.price}"
-    #    )
+    Logger.debug(
+      "Trade event received " <>
+        "#{trade_event.symbol}@#{trade_event.price}"
+    )
 
     Phoenix.PubSub.broadcast(
       Streamer.PubSub,
