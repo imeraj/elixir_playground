@@ -18,4 +18,3 @@ defmodule BinanceMock.Application do
   end
 end
 
-:wq
