@@ -69,7 +69,7 @@ defmodule Naive.Trader do
 
     Logger.info(
       "The trader(#{id}) is placing a BUY order " <>
-      "for #{symbol} @ #{price}, quantity: #{quantity}"
+        "for #{symbol} @ #{price}, quantity: #{quantity}"
     )
 
     {:ok, %Binance.OrderResponse{} = order} =
@@ -128,7 +128,7 @@ defmodule Naive.Trader do
 
         Logger.info(
           "The trader(#{id}) is placing a SELL order for " <>
-          "#{symbol} @ #{sell_price}, quantity: #{quantity}."
+            "#{symbol} @ #{sell_price}, quantity: #{quantity}."
         )
 
         {:ok, %Binance.OrderResponse{} = order} =

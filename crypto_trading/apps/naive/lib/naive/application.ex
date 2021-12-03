@@ -8,6 +8,7 @@ defmodule Naive.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Naive.Repo, []},
       {
         DynamicSupervisor,
         strategy: :one_for_one, name: Naive.DynamicSymbolSupervisor
