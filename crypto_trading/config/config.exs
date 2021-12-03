@@ -9,11 +9,27 @@
 # move said applications out of the umbrella.
 import Config
 
+config :naive, Naive.Repo,
+  database: "naive",
+  username: "meraj",
+  password: "",
+  hostname: "localhost"
+
 config :logger,
   level: :info
 
 config :naive,
-  binance_client: BinanceMock
+  ecto_repos: [Naive.Repo],
+  binance_client: BinanceMock,
+  trading: %{
+    defaults: %{
+      chunks: 5,
+      budget: 100,
+      buy_down_interval: "0.0001",
+      profit_interval: "-0.0012",
+      rebuy_interval: "0.001"
+    }
+  }
 
 if File.exists?('config/secrets.exs') do
   import_config('secrets.exs')
