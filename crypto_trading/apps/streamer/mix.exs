@@ -26,6 +26,10 @@ defmodule Streamer.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:binance, "~> 1.0"},
+      {:postgrex, "~> 0.15.13"},
+      {:ecto_sql, "~> 3.7"},
+      {:ecto_enum, "~> 1.4"},
       {:jason, "~> 1.2"},
       {:websockex, "~> 0.4.3"},
       {:phoenix_pubsub, "~> 2.0"}

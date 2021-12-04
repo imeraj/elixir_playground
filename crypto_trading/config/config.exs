@@ -7,7 +7,17 @@
 # all use the same configuration file. If you want different
 # configurations or dependencies per app, it is best to
 # move said applications out of the umbrella.
+
 import Config
+
+config :streamer,
+  ecto_repos: [Streamer.Repo]
+
+config :streamer, Streamer.Repo,
+  database: "streamer",
+  username: "meraj",
+  password: "",
+  hostname: "localhost"
 
 config :naive, Naive.Repo,
   database: "naive",
