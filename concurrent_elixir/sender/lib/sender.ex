@@ -3,12 +3,12 @@ defmodule Sender do
   Documentation for `Sender`.
   """
 
-  def send_email("hola@world.com" = email), do: raise("Oops, cound not send email to #{email}")
+  def send_email("hola@world.com"), do: :error
 
   def send_email(email) do
     Process.sleep(3000)
     IO.puts("Email to #{email} sent")
-    {:ok, "email sent"}
+    {:ok, "email_sent"}
   end
 
   def notify_all(emails) do
