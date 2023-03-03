@@ -41,7 +41,6 @@ defmodule PbtTest do
 
   defp increments(n, [head | tail]) when head == n + 1, do: increments(head, tail)
 
-  # should never hit. catch all caluse
   defp increments(_, _), do: false
 
   # generators
