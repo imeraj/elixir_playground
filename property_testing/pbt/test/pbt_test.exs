@@ -68,8 +68,8 @@ defmodule PbtTest do
   # helpers
   defp boolean(_), do: true
 
-  defp is_ordered(a, [b | t]) do
-    a <= b and is_ordered(b, t)
+  defp is_ordered([a, b | t]) do
+    a <= b and is_ordered([b | t])
   end
 
   defp is_ordered(_), do: true
