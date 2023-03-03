@@ -11,37 +11,71 @@ defmodule PbtTest do
 
   property "find biggest element" do
     forall x <- non_empty(list(integer())) do
-      biggest(x) == List.last(Enum.sort(x))
+      Pbt.biggest(x) == model_biggest(x)
     end
   end
 
-  property "list sequence increases" do
+  property " list sequence increases" do
     forall {start, count} <- {integer(), non_neg_integer()} do
       list = Enum.to_list(start..(start + count))
-      count + 1 == length(list) and increments(list)
+      count + 1 == length(list) and Pbt.increments(list)
     end
   end
+
+  property "picks the last number" do
+    forall {list, known_last} <- {list(number()), number()} do
+      known_list = list ++ [known_last]
+      known_last == List.last(known_list)
+    end
+  end
+
+  property "a sorted list has ordered pairs" do
+    forall list <- list(term()) do
+      is_ordered(Enum.sort(list))
+    end
+  end
+
+  property "a sorted list keeps its size" do
+    forall l <- list(number()) do
+      length(l) == length(Enum.sort(l))
+    end
+  end
+
+  property "no element added" do
+    forall l <- list(number()) do
+      sorted = Enum.sort(l)
+      Enum.all?(sorted, &(&1 in l))
+    end
+  end
+
+  property "no element deleted" do
+    forall l <- list(number()) do
+      sorted = Enum.sort(l)
+      Enum.all?(l, &(&1 in sorted))
+    end
+  end
+
+  property "symmetric encoding/decoding" do
+    forall data <- list({atom(), any()}) do
+      encoded = encode(data)
+      is_binary(encoded) and data == decode(encoded)
+    end
+  end
+
+  # models
+  defp model_biggest(list), do: List.last(Enum.sort(list))
 
   # helpers
   defp boolean(_), do: true
 
-  defp biggest([head | tail]) do
-    biggest(tail, head)
+  defp is_ordered(a, [b | t]) do
+    a <= b and is_ordered(b, t)
   end
 
-  defp biggest([], max), do: max
+  defp is_ordered(_), do: true
 
-  defp biggest([head | tail], max) when head >= max, do: biggest(tail, head)
-
-  defp biggest([head | tail], max) when head < max, do: biggest(tail, max)
-
-  defp increments([head | tail]), do: increments(head, tail)
-
-  defp increments(_, []), do: true
-
-  defp increments(n, [head | tail]) when head == n + 1, do: increments(head, tail)
-
-  defp increments(_, _), do: false
+  defp encode(t), do: :erlang.term_to_binary(t)
+  defp decode(t), do: :erlang.binary_to_term(t)
 
   # generators
   defp my_type(), do: term()
