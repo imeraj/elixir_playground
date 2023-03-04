@@ -78,5 +78,5 @@ defmodule PbtTest do
   defp decode(t), do: :erlang.binary_to_term(t)
 
   # generators
-  defp my_type(), do: term()
+  defp my_type, do: term()
 end
