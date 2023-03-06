@@ -43,6 +43,92 @@ defmodule GeneratorTest do
     end
   end
 
+  property "resize", [:verbose] do
+    forall bin <- resize(150, binary()) do
+      collect(is_binary(bin), to_range(10, byte_size(bin)))
+    end
+  end
+
+  property "profile 1", [:verbose] do
+    forall profile <- [
+             name: resize(10, utf8()),
+             age: pos_integer(),
+             bio: resize(350, utf8())
+           ] do
+      name_len = to_range(10, String.length(profile[:name]))
+      bio_len = to_range(300, String.length(profile[:bio]))
+      aggregate(true, name: name_len, bio: bio_len)
+    end
+  end
+
+  property "profile 2", [:verbose] do
+    forall profile <- [
+             name: utf8(),
+             age: pos_integer(),
+             bio: sized(s, resize(s * 35, utf8()))
+           ] do
+      name_len = to_range(10, String.length(profile[:name]))
+      bio_len = to_range(300, String.length(profile[:bio]))
+      aggregate(true, name: name_len, bio: bio_len)
+    end
+  end
+
+  property "naive queue generation" do
+    forall list <- list({term(), term()}) do
+      q = :queue.from_list(list)
+      :queue.is_queue(q)
+    end
+  end
+
+  property "queue with let macro" do
+    forall q <- non_empty_q(queue()) do
+      :queue.is_queue(q)
+    end
+  end
+
+  property "dict generator" do
+    forall m <- map_gen() do
+      Map.size(m) < 5
+    end
+  end
+
+  property "symbolic generator" do
+    forall m <- map_symb() do
+      Map.size(:proper_symb.eval(m)) < 5
+    end
+  end
+
+  property "automated symbolic generator" do
+    forall m <- map_autosymb() do
+      Map.size(m) < 5
+    end
+  end
+
+  defp map_gen do
+    let(x <- list({integer(), integer()}), do: Map.new(x))
+  end
+
+  defp map_symb, do: sized(size, map_symb(size, {:call, Map, :new, []}))
+
+  defp map_symb(0, map), do: map
+
+  defp map_symb(n, map) do
+    map_symb(n - 1, {:call, Map, :put, [map, integer(), integer()]})
+  end
+
+  defp map_autosymb() do
+    sized(size, map_autosymb(size, {:"$call", Map, :new, []}))
+  end
+
+  defp map_autosymb(0, map), do: map
+
+  defp map_autosymb(n, map) do
+    map_autosymb(
+      n - 1,
+      {:"$call", Map, :put, [map, integer(), integer()]}
+    )
+  end
+
   defp escape(_str), do: true
 
   def classes(str) do
@@ -82,4 +168,14 @@ defmodule GeneratorTest do
   # Generators
   defp key, do: oneof([range(1, 10), integer()])
   defp val, do: term()
+
+  defp queue do
+    let list <- list({term(), term()}) do
+      :queue.from_list(list)
+    end
+  end
+
+  defp non_empty_q(queue_type) do
+    such_that(q <- queue_type, when: q != [] and q != <<>>)
+  end
 end
