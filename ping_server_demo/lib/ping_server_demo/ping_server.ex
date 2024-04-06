@@ -2,17 +2,19 @@ defmodule PingServer do
   use GenServer
 
   def start do
-    GenServer.start_link(__MODULE__, nil, name: {:global, __MODULE__})
+    GenServer.start_link(__MODULE__, nil, name: via_tuple())
   end
 
   def ping do
     IO.inspect("Executing Genserver on node - #{node()}")
-    GenServer.call({:global, __MODULE__}, :ping)
+    GenServer.call(via_tuple(), :ping)
   end
 
   @impl GenServer
   def init(_), do: {:ok, nil}
 
   @impl GenServer
-  def handle_call(:ping, _, state), do:  {:reply, :pong, state}
+  def handle_call(:ping, _, state), do: {:reply, :pong, state}
+
+  defp via_tuple, do: PingServerRegistry.via_tuple(__MODULE__)
 end

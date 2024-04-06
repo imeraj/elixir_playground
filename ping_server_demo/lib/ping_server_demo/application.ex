@@ -8,8 +8,7 @@ defmodule PingServerDemo.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: PingServerDemo.Worker.start_link(arg)
-      # {PingServerDemo.Worker, arg}
+      PingServerRegistry
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
