@@ -4,7 +4,7 @@ defmodule PingServerRegistry do
   end
 
   def via_tuple(key) do
-    {:via, Registry, {__MODULE__, {:global, key}}}
+    {:via, Registry, {__MODULE__, key}}
   end
 
   def child_spec(_) do
